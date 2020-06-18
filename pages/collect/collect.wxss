@@ -1,0 +1,78 @@
+/* pages/collect/collect.wxss */
+.container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #F9F9F9;
+  font-size: 24rpx;
+  color: #4a4a4a;
+}
+.collect-items{
+  width: 100%;
+}
+.collect-items .item{
+  padding: 30rpx 20rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  line-height: 45rpx;
+}
+.collect-items .item .img{
+  width: 172rpx;
+  height: 128rpx;
+  margin-right: 20rpx;
+}
+.collect-items .item .info{
+  width: 480rpx;
+}
+.collect-items .item .info .name{
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.collect-items .item .info .address{
+  width: 470rpx;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow : hidden;
+}
+.collect-items .item .info .name .tag{
+  display: inline-block;
+}
+.collect-items .item .del {
+  display: inline-block;
+  width: 32rpx;
+}
+.collect-items .item .del image{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  right: 0;
+  top: 50%;
+  margin-top: -50rpx;
+}
+.collect-items .item .more{
+  display: flex;
+}
+.mr10{
+  margin-right: 15rpx;
+}
+.col_9{
+  color: #9B9B9B;
+  display: inline-block;
+}
+.collect-items{
+  height: 100%;
+}
+.collect-items scroll-view{
+  height: 100%;
+}
+.collect-items .loadingComplete{
+  text-align: center;
+  line-height: 60rpx;
+  color: #9b9b9b;
+}

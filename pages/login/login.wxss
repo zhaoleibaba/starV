@@ -1,0 +1,32 @@
+/* pages/login/login.wxss */
+.logo{
+  width: 293rpx;
+  height: 112rpx;
+  margin: 150rpx 0;
+}
+
+.loginBtn{
+  width: 100%;
+  padding: 10rpx 80rpx;
+  box-sizing: border-box;
+}
+.loginBtn button{
+  width: 100%;
+  font-weight: normal;
+  margin-bottom: 40rpx;
+}
+/** 修改button默认的点击态样式类**/
+.button-hover {
+  background-color: #8737A7;
+}
+
+button[type='wxlogin'] {
+  background-color: var(--c);
+  color: #fff;
+}
+button[type='mlogin'] {
+  background-color: #fff;
+  color: #3D154D;
+  border: 1px solid #3D154D;
+  box-sizing: border-box;
+}

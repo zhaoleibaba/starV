@@ -1,0 +1,193 @@
+<!--pages/hotelInfo/hotelInfo.wxml-->
+<view class="container">
+  <view class="topBanner">
+    <image src="{{hotel.image}}" />
+  </view>
+  <view class="info">
+    <view class="title">{{hotel.name}}</view>
+    <view class="info-item item1">
+      <view class="tag col_tag">[{{hotel.level}}]</view>
+      <view class="score">评分：
+        <view class="inline">
+          <view class="rate"></view>
+          <view class="em" style="width: calc( {{hotel.score}} * 18.5px )"></view>
+        </view>
+      </view>
+    </view>
+    <view class="info-item">
+      <view class="start">开业年份：2008年10月</view>
+    </view>
+    <view class="info-item">
+      <view class="decoration">装修年份：2008年10月</view>
+    </view>
+    <view class="info-item">
+      <view class="area">{{hotel.district}}·{{hotel.landmark}}</view>
+    </view>
+    <view class="info-item">
+      <view class="address">{{hotel.address}}</view>
+    </view>
+    <view class="other">
+      <view class="collect" bindtap="collectSelect">
+        <view class="icon-like">
+          <van-icon name="like" size="32rpx" color="{{color}}" />
+        </view>
+        <!-- <image class="icon-like" src="../../images/collect_select.png"></image> -->
+        <view>{{collectText}}</view>
+      </view>
+      <navigator url='/pages/discuss/discuss?id={{hotel.id}}'>
+      <view class="skeleton">评论 ></view>
+      </navigator>
+    </view>
+  </view>
+  <view class="blank10"></view>
+  <view class="tags">
+    <block  wx:for="{{hotel.tags}}" wx:key="index">
+      <view class="tag-item">{{item.name}}</view>
+    </block>
+  </view>
+  <view class="blank10"></view>
+  <view class="detail">
+    <view class="detail-item">
+      <view class="img icon-mj">
+        <image src="../../images/icon-mj.png"></image>
+      </view>
+      <view class="msg">
+        <view>31-714m²</view>
+        <view class="fs12">会场面积</view>
+      </view>
+    </view>
+    <view class="detail-item">
+      <view class="img icon-maxPer">
+        <image src="../../images/icon-rs.png"></image>
+      </view>
+      <view class="msg">
+        <view>5000人</view>
+        <view class="fs12">最大人数</view>
+      </view>
+    </view>
+    <view class="detail-item">
+      <view class="img icon-all">
+        <image src="../../images/icon-hc.png"></image>
+      </view>
+      <view class="msg">
+        <view>23间</view>
+        <view class="fs12">会场总数</view>
+      </view>
+    </view>
+    <view class="detail-item">
+      <view class="img icon-room">
+        <image src="../../images/icon-fj.png"></image>
+      </view>
+      <view class="msg">
+        <view>566间</view>
+        <view class="fs12">房间数量</view>
+      </view>
+    </view>
+    <view class="detail-item">
+      <view class="img icon-parking">
+        <image src="../../images/icon-pk.png"></image>
+      </view>
+      <view class="msg">
+        <view>100个</view>
+        <view class="fs12">停车位数量</view>
+      </view>
+    </view>
+  </view>
+  <view class="blank10"></view>
+  <view class="pkg">
+    <block wx:for="{{packageBox}}" wx:key="index">
+      <view class="pkg-item" data-url="{{item.url}}" bindtap="viewImg">{{item.name}}</view>
+    </block>
+  </view>
+  <view class="blank10"></view>
+  <view class="about">
+    <view class="title">集团介绍</view>
+    <view class="more">{{group.group_intro}}</view>
+  </view>
+  <view class="blank10"></view>
+  <view class="about">
+    <view class="title">酒店介绍</view>
+    <view class="more">{{hotel.intro}}</view>
+  </view>
+
+  <view class='swiperBox'>
+    <view class='title'>
+      <view class='titleSel {{0 == currentIndex ? "bgf" : ""}}' bindtap='titleClick' data-idx='0'>
+        <hr class="{{0 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}}" />
+        <text>{{meetingBox.name}}({{meetingBox.number}}间)</text>
+      </view>
+      <view class='titleSel {{1 == currentIndex ? "bgf" : ""}}' bindtap='titleClick' data-idx='1'>
+        <hr class="{{1 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+        <text>{{spaceBox.name}}({{spaceBox.number}})</text>
+      </view>
+      <view class='titleSel {{2 == currentIndex ? "bgf" : ""}}' bindtap='titleClick' data-idx='2'>
+        <hr class="{{2 == currentIndex ? 'headerLineSel' : 'headerLineUnsel'}} " />
+        <text>{{roomBox.name}}({{roomBox.number}})</text>
+      </view>
+    </view>
+    <swiper class='swiper' bindchange='pagechange' current='{{currentIndex}}'>
+      <swiper-item>
+        <view class="meetInfo">
+          <view class="meet-device">会议室设施设备信息  ></view>
+          <view class="info-items">
+            <block wx:for="{{meetingBox.list}}" wx:key="index">
+              <view class="info-item" data-id="{{item.id}}" bindtap="_goHotelInfo">
+                <view class="item">
+                  <view class="name">{{item.name}}</view>
+                  <view>面积：{{item.area}}m²</view>
+                  <view>最大容纳人数：{{item.accommodation_max}}人</view>
+                </view>
+                <view class="pri"><text class="col_tag">￥{{item.hour_price}}</text> /小时</view>
+                <view class="pre">
+                  <view class="btn" data-id="{{item.id}}" catchtap="toReserve">预定</view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="meetInfo">
+          <view class="info-items">
+          <block wx:for="{{spaceBox.list}}" wx:key="index">
+            <view class="info-item">
+              <view class="item">
+                <view class="name">{{item.name}}</view>
+                <view>面积：{{item.area}}m²</view>
+                <view>最大容纳人数：{{item.accommodation_max}}人</view>
+              </view>
+              <view class="pri"><text class="col_tag">￥{{item.hour_price}}</text> /小时</view>
+              <view class="pre">
+                <view class="btn" data-id="{{item.id}}" catchtap="toReserve">预定</view>
+              </view>
+            </view>
+          </block>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="meetInfo">
+          <view class="info-items">
+            <block wx:for="{{roomBox.list}}" wx:key="index">
+              <view class="info-item info-room" data-id="{{item.id}}" bindtap="_goHotelInfo">
+                <view class="item">
+                  <view class="name">{{item.name}}</view>
+                  <view><text class="w140">面积：{{item.area}}m²</text><text>是否有窗：{{item.attribute.window == 1 ? '有窗' : '无窗'}}</text></view>
+                  <view><text class="w140">数量：{{item.accommodation_max}}</text><text>上网方式：{{item.attribute.internet_access == 1 ? 'wifi(免费)' : '无网络'}}</text></view>
+                </view>
+                <view class="pri col_tag">￥{{item.hour_price}}</view>
+                <view class="pre">
+                  <view class="btn" data-id="{{item.id}}" data-source="2" bindtap="callMe">Call Me</view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="blank10"></view>
+  <view class="callme">
+    <view class="btn" data-id="{{hotel_id}}" data-source="1" bindtap="callMe">Call Me  联系我</view>
+  </view>
+</view>

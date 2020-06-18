@@ -1,0 +1,63 @@
+/* pages/calendar/calendar.wxss */
+.topWeek{
+  position:fixed;
+  top:0;
+  background:#fff;
+  font-size: 30rpx;
+}
+.date-year-month{
+  text-align: left;
+  padding-left: 30rpx;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+}
+.date-day{
+  display: flex;
+  padding:5px;
+  text-align:center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.date-day.bgitem{
+  background-color: var(--c);
+  color:#FFF;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50px;
+}
+.date-day.active{
+  background: var(--c);
+  color:#FFF;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50px;
+}
+.date-day.unavailable{
+  color:#aaa;
+}
+
+.date-week{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin:5px;
+  font-size: 24rpx;
+}
+.week{
+  color: var(--c);
+}
+.row{
+  display: flex;
+  flex-direction: row;
+}
+ .item-days{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  font-size: 35rpx;
+} 
+.bgwhite{
+  background-color: #fff;
+}

@@ -1,0 +1,99 @@
+<!--pages/reserve/reserve.wxml-->
+<view class="container">
+  <view class="blank10"></view>
+  <view class="reserveInfo">
+    <view class="title">{{hotelInfo.hotel_name}}</view>
+    <view class="name">会议厅 ：{{hotelInfo.name}}</view>
+    <view class="pri">
+      <view>订单总额</view>
+      <view class="col_tag">¥ {{allPrice}}</view>
+    </view>
+  </view>
+  <view class="blank10"></view>
+  <view class="category">
+    <view class="ts">为了平台更好的给你服务 ，建议您选择您所属于行业的分类</view>
+    <view class="form-info">
+      <view class="form-item" bindtap="openSelectBox">
+        <view class="item-box">
+          <view class="value"><text>{{ chooseWork }}</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="blank10"></view>
+  <view class="order-info">
+    <view class="title">订单信息</view>
+    <view class="name">会议厅 ：{{hotelInfo.name}}</view>
+    <view class="data-box">
+      <view class="fl">预定日期：</view>
+      <view class="data">
+      <view bindtap="chooseData">
+        <view class="icon"><image src="../../images/icon-time.png" /></view>
+        <view class="value">{{newDate}}</view>
+      </view>
+      </view>
+    </view>
+    <view class="time">选择时间：</view>
+    <view class="timeBox">
+      <view class="td {{item.occupy == 1 ? 'on': ''}}" wx:for="{{timeBox}}" data-index="{{index}}" wx:key="index" bindtap="chooseTime">{{item.hour}}</view>
+    </view>
+    <view class="time">预订时间： {{timeCount}}小时</view>
+    <view class="time">价格：<text class="col_tag">￥{{price}}</text>/小时</view>
+  </view>
+  <view class="blank10"></view>
+  <view class="order-info">
+    <view class="data-box">
+      <view class="fl">姓名：</view>
+      <view class="data">
+        <view class="input">
+          <input placeholder="" value="{{userName}}" bindinput='formName'/>
+        </view>
+      </view>
+    </view>
+    <view class="data-box">
+      <view class="fl">联系方式：</view>
+      <view class="data">
+        <view class="input">
+          <input placeholder="" value="{{phone}}" bindinput='formPhone'/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="order-info">
+    <view class="data-box">
+    <view class="title">订单信息</view>
+      <view class="section">
+        <textarea  value="{{txtContent}}" bindinput='txtInput' bindlinechange="textAreaLineChange" wx:if="{{showMask}}" />
+        <view class="btn-area">
+          <button class="btn" bindtap="bindButtonTap">提交订单</button>
+        </view>
+      </view>
+    </view>
+  </view>
+    <van-action-sheet
+      show="{{ show }}"
+      actions="{{ actions }}"
+      data-id="{{id}}"
+      round = "{{ round }}"
+      cancel-text="取消"
+      bind:close="onClose"
+      bind:cancel = "onClose"
+      bind:select="onSelect"
+    />
+    <van-popup
+      show="{{ isShowDatetime }}"
+      position="bottom"
+      bind:close="onClose"
+    >
+      <van-datetime-picker
+        type="date"
+        value="{{currentDate}}"
+        confirm-button-text="确定"
+        cancel-button-text="取消"
+        bind:input="onInput"
+        bind:confirm = "onDataConfirm"
+        bind:cancel = "onDataCancel"
+        min-date="{{minDate}}"
+        max-date="{{maxDate}}"/>
+    </van-popup>
+</view>

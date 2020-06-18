@@ -1,0 +1,114 @@
+<!--pages/meetInfo/meetInfo.wxml-->
+<view class="container">
+  <view class="topBanner">
+    <image src="{{meet.image}}" data-url="{{meet.image}}" bindtap="viewImg" />
+  </view>
+  <view class="w100" wx:if="{{meet.type == 1}}">
+    <view class="info">
+      <view class="title">{{meet.name}} 信息</view>
+      <view class="info-item">
+        <view>位于{{meet.attribute.floor}}楼 </view>
+      </view>
+      <view class="info-item">
+        <view>层高{{meet.attribute.height}}m</view>
+      </view>
+      <view class="info-item">
+        <view>长宽{{meet.attribute.length}}*{{meet.attribute.width}}m</view>
+      </view>
+      <view class="info-item">
+        <view>灯下高度{{meet.attribute.lamp_height}}m</view>
+      </view>
+      <view class="info-item">
+        <view>{{meet.attribute.column==0 ? '无柱' : '有柱'}}</view>
+      </view>
+      <view class="info-item">
+        <view>最多可容纳：{{meet.accommodation_max}}人</view>
+      </view>
+    </view>
+    <view class="detail">
+      <view class="detail-item">
+        <view class="img icon-mj">
+          <image src="../../images/icon-jc.png"></image>
+        </view>
+        <view class="msg">
+          <view>剧院式</view>
+          <view class="fs12">{{meet.attribute.jy}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-maxPer">
+          <image src="../../images/icon-kc.png"></image>
+        </view>
+        <view class="msg">
+          <view>课桌式</view>
+          <view class="fs12">{{meet.attribute.kz}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-all">
+          <image src="../../images/icon-yh.png"></image>
+        </view>
+        <view class="msg">
+          <view>宴会式</view>
+          <view class="fs12">{{meet.attribute.yh}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-room">
+          <image src="../../images/icon-u.png"></image>
+        </view>
+        <view class="msg">
+          <view>U字型</view>
+          <view class="fs12">{{meet.attribute.ux}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-parking">
+          <image src="../../images/icon-yg.png"></image>
+        </view>
+        <view class="msg">
+          <view>鱼骨式</view>
+          <view class="fs12">{{meet.attribute.yg}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-parking">
+          <image src="../../images/icon-hz.png"></image>
+        </view>
+        <view class="msg">
+          <view>董事会式</view>
+          <view class="fs12">{{meet.attribute.dsh}}</view>
+        </view>
+      </view>
+      <view class="detail-item">
+        <view class="img icon-parking">
+          <image src="../../images/icon-jh.png"></image>
+        </view>
+        <view class="msg">
+          <view>酒会式</view>
+          <view class="fs12">{{meet.attribute.jh}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="w100" wx:if="{{meet.type == 3}}">
+    <view class="info">
+      <view class="title">{{meet.name}} 信息</view>
+      <view class="info-item">
+        <view>面积：{{meet.area}}m</view>
+      </view>
+      <view class="info-item">
+        <view>数量：{{meet.accommodation_max}}</view>
+      </view>
+      <view class="info-item">
+        <view>上网方式：{{meet.attribute.internet_access}}</view>
+      </view>
+      <view class="info-item">
+        <view>是否有窗：{{meet.attribute.window}}</view>
+      </view>
+      <view class="info-item">
+        <view>价格：{{meet.hour_price}}/小时</view>
+      </view>
+    </view>
+  </view>
+</view>

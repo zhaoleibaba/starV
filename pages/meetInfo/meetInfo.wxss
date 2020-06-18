@@ -1,0 +1,51 @@
+/* pages/meetInfo/meetInfo.wxss */
+.topBanner{
+  width: 100%;
+  height: 460rpx;
+}
+.info{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  float: left;
+  font-size: 24rpx;
+  position: relative;
+  color: #4a4a4a;
+}
+.info .title{
+  font-weight: bold;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.info .info-item{
+  line-height: 50rpx;
+}
+.detail{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  color: #4a4a4a;
+}
+.detail .detail-item{
+  padding: 20rpx 0;
+}
+.detail .detail-item .img{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.detail .detail-item .msg{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  padding-top: 10rpx;
+}
+.detail .detail-item .msg .fs12{
+  font-size: 24rpx;
+}
+.w100{
+  width: 100%;
+}

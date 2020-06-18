@@ -1,0 +1,48 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="top">
+    <view class="top-head">
+      <image src="../../images/icon-head.png" />
+      <text wx:if="{{showMobile}}">{{mobile}}</text>
+
+      <button wx:else="{{!showMobile}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='lgbtn'>点此登陆</button>
+    </view>
+    <view class="showBanner">
+      <image src="../../images/mark.png" />
+    </view>
+  </view>
+  <view class="main">
+    <navigator url='/pages/order/order'>
+    <view class="main-item ft clickable">
+      <view class="icon">
+        <image src="../../images/icon-zd.png" />
+      </view>
+      <view class="title">我的订单</view>
+    </view>
+    </navigator>
+    <navigator url='/pages/collect/collect'>
+    <view class="main-item ft clickable">
+      <view class="icon">
+        <image src="../../images/icon-sc.png" />
+      </view>
+      <view class="title">我的收藏</view>
+    </view>
+    </navigator>
+    <navigator url='/pages/userInfo/userInfo'>
+    <view class="main-item ft clickable">
+      <view class="icon">
+        <image src="../../images/icon-zd.png" />
+      </view>
+      <view class="title">个人信息</view>
+    </view>
+    </navigator>
+    <navigator url='/pages/reset/reset'>
+    <view class="main-item ft clickable">
+      <view class="icon">
+        <image src="../../images/icon-ep.png" />
+      </view>
+      <view class="title">修改密码</view>
+    </view>
+    </navigator>
+  </view>
+</view>

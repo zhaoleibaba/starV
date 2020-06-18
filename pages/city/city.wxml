@@ -1,0 +1,8 @@
+<!--pages/city/city.wxml-->
+<view class="container">
+  <view class="city-box">
+    <block wx:for="{{cityItems}}" wx:key="index">
+      <view class="cityItem" data-id="{{item.id}}" data-py="{{item.spelling}}" data-name="{{item.name}}" data-code="{{item.code}}" bindtap="chooseCity">{{item.name}}</view>
+    </block>
+  </view>
+</view>

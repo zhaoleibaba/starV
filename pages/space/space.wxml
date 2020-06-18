@@ -1,0 +1,184 @@
+<!--pages/space/space.wxml-->
+<view class="container">
+  <view class="top">
+    <view class="search">
+      <view class="left {{on ? 'on' : ''}}" bindtap="chooseCity">
+        <view class="icon">
+          <image src="../../images/icon-wz.png" class="topPosition" />
+        </view>
+        <view class="city">{{cityName}}</view>
+      </view>
+      <view class="right">
+        <view class="icon">
+          <image src="../../images/icon-search.png" />
+        </view>
+        <view class="search-box">
+          <input class="search-input" bindconfirm='confirm' placeholder="请输入会议酒店名称、地标关键词" />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="nav-bar"> -->
+      <dropdownmenu dropDownMenuTitle='{{dropDownMenuTitle}}' dropDownMenuDistrictData="{{dropDownMenuDistrictData}}" dropDownMenuRightData="{{dropDownMenuRightData}}" bind:selectedItem='selectedItem' bind:conditionSelect='conditionSelect' />
+  </view>
+  <!-- <view> -->
+    <scroll-view scroll-y='true'  class="result-box" bindscrolltolower='scrollLower' style="padding-bottom:{{height}}rpx">
+      <view class="item" data-id="{{item.id}}" wx:for="{{hotellist}}" wx:key="index" bindtap="_goHotelInfo">
+        <view class="hotel-img">
+          <image src="../../images/hotel.jpg" />
+        </view>
+        <view class="hotel-info">
+          <view class="item-name">
+            <text class="name"> {{ item.name }} </text>
+            <view class="h-tag">[{{item.level}}]</view>
+          </view>
+          <view class="item-address">{{item.address}}</view>
+          <view class="item-detail">
+            <view class="detail-item">
+              <text class="item-title">会场面积:</text>
+              <text class="item-value">{{item.area_min}}-{{item.area_max}}m²</text>
+            </view>
+            <view class="detail-item">
+              <text class="item-title">会场数量:</text>
+              <text class="item-value">{{item.venue_total}}间</text>
+            </view>
+            <view class="detail-item">
+              <text class="item-title">容纳人数:</text>
+              <text class="item-value">{{item.accommodation_min}}-{{item.accommodation_max}}人</text>
+            </view>
+            <view class="detail-item">
+              <text class="item-title">客房数量:</text>
+              <text class="item-value">{{item.room_total}}间</text>
+            </view>
+            <view class="detail-item">
+              <text class="item-title">会场价格:</text>
+              <text class="item-value col_F7">￥{{item.venue_price}}</text>
+            </view>
+            <view class="detail-item">
+              <text class="item-title">客房参考价:</text>
+              <text class="item-value col_F7">￥{{item.room_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+    </scroll-view>
+    <view class="no-result" wx:if="{{noData}}">
+      <view class="col_4a">没有搜索结果</view>
+      <view class="col_9b">换个关键词试试</view>
+    </view>
+    <!-- <view class="item" bindtap="_goHotelInfo">
+      <view class="hotel-img">
+        <image src="../../images/hotel.jpg" />
+      </view>
+      <view class="hotel-info">
+        <view class="item-name">
+          <text class="name"> 上海威斯汀大饭店 </text>
+          <view class="h-tag">[五星/豪华]</view>
+        </view>
+        <view class="item-address">地址：上海市浦东新区长柳路100号</view>
+        <view class="item-detail">
+          <view class="detail-item">
+            <text class="item-title">会场面积:</text>
+            <text class="item-value">45-545m²</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场数量:</text>
+            <text class="item-value">15间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">容纳人数:</text>
+            <text class="item-value">12-600人</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房数量:</text>
+            <text class="item-value">362间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场价格:</text>
+            <text class="item-value col_F7">￥5,000</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房参考价:</text>
+            <text class="item-value col_F7">￥1,400</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item" bindtap="_goHotelInfo">
+      <view class="hotel-img">
+        <image src="../../images/hotel.jpg" />
+      </view>
+      <view class="hotel-info">
+        <view class="item-name">
+          <text class="name"> 上海威斯汀大饭店 </text>
+          <view class="h-tag">[五星/豪华]</view>
+        </view>
+        <view class="item-address">地址：上海市浦东新区长柳路100号</view>
+        <view class="item-detail">
+          <view class="detail-item">
+            <text class="item-title">会场面积:</text>
+            <text class="item-value">45-545m²</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场数量:</text>
+            <text class="item-value">15间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">容纳人数:</text>
+            <text class="item-value">12-600人</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房数量:</text>
+            <text class="item-value">362间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场价格:</text>
+            <text class="item-value col_F7">￥5,000</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房参考价:</text>
+            <text class="item-value col_F7">￥1,400</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item" bindtap="_goHotelInfo">
+      <view class="hotel-img">
+        <image src="../../images/hotel.jpg" />
+      </view>
+      <view class="hotel-info">
+        <view class="item-name">
+          <text class="name"> 上海威斯汀大饭店 </text>
+          <view class="h-tag">[五星/豪华]</view>
+        </view>
+        <view class="item-address">地址：上海市浦东新区长柳路100号</view>
+        <view class="item-detail">
+          <view class="detail-item">
+            <text class="item-title">会场面积:</text>
+            <text class="item-value">45-545m²</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场数量:</text>
+            <text class="item-value">15间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">容纳人数:</text>
+            <text class="item-value">12-600人</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房数量:</text>
+            <text class="item-value">362间</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">会场价格:</text>
+            <text class="item-value col_F7">￥5,000</text>
+          </view>
+          <view class="detail-item">
+            <text class="item-title">客房参考价:</text>
+            <text class="item-value col_F7">￥1,400</text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  <!-- </view> -->
+</view>

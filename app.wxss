@@ -1,0 +1,63 @@
+/**app.wxss**/
+page{
+  --c: #3D154D;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+} 
+image{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.blank5{
+  width: 100%;
+  height: 5rpx;
+  background: #f2f2f2;
+}
+.blank10{
+  width: 100%;
+  height: 15rpx;
+  background: #f2f2f2;
+}
+/* 箭头 */
+.ft {
+  position: relative;
+}
+.ft:after {
+  content: " ";
+  display: inline-block;
+  height: 26rpx;
+  width: 26rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -14rpx;
+  right: 20rpx;
+}
+.clickable:active {
+  background-color: #f2f3f5;
+}
+.btn{
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  color: #fff;
+  background: var(--c);
+  border-radius: 10rpx;
+}
+.col_tag{
+  color: #F75141;
+}

@@ -1,0 +1,49 @@
+/* pages/orderInfo/orderInfo.wxss */
+.container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #F9F9F9;
+  font-size: 28rpx;
+  color: #4a4a4a;
+  padding: 20rpx;
+}
+.order-sn{
+  display: inline-block;
+}
+.order-sn,.order-info{
+  background: #fff;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  line-height: 50rpx;
+  display: inline-block;
+}
+.order-sn .fw,.order-info .title{
+  font-weight: 500;
+  font-size: 36rpx;
+}
+.order-info{
+  margin-top: 20rpx;
+}
+.order-info .title{
+  margin-bottom: 30rpx;
+}
+.order-info .hotel-info{
+  background: #8976A2;
+  padding: 20rpx;
+  box-sizing: border-box;
+  color: #fff;
+}
+.order-info .hotel-info .address{
+  font-weight: 300;
+}
+.order-info .info-items .item{
+  margin: 30rpx 0;
+}
+.order-info .contact {
+  border-top: 2px solid #f9f9f9;
+  padding: 30rpx 0;
+}

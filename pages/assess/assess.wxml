@@ -1,0 +1,19 @@
+<!--pages/assess/assess.wxml-->
+<view class="container">
+  <view class="rate">
+    <view class="rt">评分</view>
+    <van-rate value="{{ value }}"size="{{ 25 }}" void-icon="star" color="#F75141" void-color="#eee" bind:change="onChange" />
+  </view>
+  <view class="commit">
+    <view class="order-info">
+      <view class="data-box">
+        <view class="section">
+          <textarea  value="{{txtContent}}" bindinput='txtInput' bindlinechange="textAreaLineChange" />
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button class="btn" bindtap="bindButtonTap">发表评价</button>
+    </view>
+  </view>
+</view>

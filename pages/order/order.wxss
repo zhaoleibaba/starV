@@ -1,0 +1,152 @@
+/* pages/order/order.wxss */
+.container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #F9F9F9;
+  font-size: 28rpx;
+  color: #4a4a4a;
+}
+.swiperBox .act{
+  color: #7D3F96;
+}
+.swiperBox {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.order-items{
+  padding: 20rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.order-items .item{
+  height: 400rpx;
+  background: #fff;
+  border: 1px solid #DDDDDD;
+  margin-bottom: 20rpx;
+}
+.order-items .item .top{
+  height: 64rpx;
+  border-bottom: 1px solid #DDDDDD;
+  background: #F5F5F5;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  line-height: 64rpx;
+  color: #9A9A9A;
+  width: 100%;
+}
+.order-items .item .col_4a{
+  color: #4a4a4a;
+  width: 250rpx;
+  float: left;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow : hidden;
+}
+.h100,.van-tabs,.van-tab__pane--active{
+  height: 100% !important;
+}
+
+.swiperBox scroll-view{
+  height: 100%;
+}
+.van-tabs__content {
+  overflow: none !important;
+  height: calc( 100% - 44px );
+}
+  
+.order-items .item .pr40{
+  width: 410rpx;
+  float: left;
+}
+.order-items .item .middle{
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f2f2f2;
+}
+.order-items .item .middle .img{
+  width: 172rpx;
+  height: 128rpx;
+  display: block;
+  float: left;
+  margin-right: 10rpx;
+}
+.order-items .item .middle .order-info{
+  display: inline-block;
+  line-height: 45rpx;
+}
+.order-items .item .middle-line{
+  border: 1px solid #f2f2f2;
+  width: 100%;
+  height: 1px;
+  padding: 0 20rpx;
+}
+.order-items .item .middle .order-info .name{
+  color: #000;
+  font-weight: bold;
+}
+.order-items .item .middle .order-info .dw{
+  width: 140rpx;
+  display: inline-block;
+}
+.order-items .item .bottom{
+  display: flex;
+  padding: 15rpx 20rpx 20rpx;
+  justify-content: space-between;
+  line-height: 90rpx;
+}
+.order-items .item .bottom .order-btn{
+  margin-top: 18rpx;
+  display: inline-block;
+  display: flex;
+}
+.order-items .item .bottom .order-btn .over{
+  line-height: 55rpx;
+  padding-right: 20rpx;
+}
+.order-items .item .bottom .order-btn .btn{
+  width: 128rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  border-radius: 5rpx;
+}
+.order-items .item .bottom .order-btn .btn.col_0{
+  background: #fff;
+  border: 1px solid #fff;
+  color: #4a4a4a;
+}
+.order-items .item .bottom .order-btn .btn.col_1{
+  background: #F75141;
+  border: 1px solid #F75141;
+}
+.order-items .item .bottom .order-btn .btn.col_2{
+  background: var(--c);
+  border: 1px solid var(--c);
+}
+.order-items .item .bottom .order-btn .btn.col_3{
+  background: #F5F7FA;
+  border: 1px solid #DCDFE6;
+  color: #DCDFE6;
+}
+.order-items .item .bottom .order-btn .btn.col_4{
+  background: #7D3F96;
+  border: 1px solid #7D3F96;
+  color: #DCDFE6;
+}
+
+.swiperBox .loadingComplete{
+  text-align: center;
+  line-height: 60rpx;
+  color: #9b9b9b;
+}
+.over{
+  line-height: 56rpx;
+  padding-right: 20rpx;
+}

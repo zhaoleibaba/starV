@@ -1,0 +1,71 @@
+{
+  "usingComponents": {},
+  "pages": [
+    "pages/index/index",
+    "pages/space/space",
+    "pages/login/login",
+    "pages/order/order",
+    "pages/user/user",
+    "pages/city/city",
+    "pages/reserve/reserve",
+    "pages/phone/phone",
+    "pages/reset/reset",
+    "pages/hotelInfo/hotelInfo",
+    "pages/meetInfo/meetInfo",
+    "pages/discuss/discuss",
+    "pages/collect/collect",
+    "pages/userInfo/userInfo",
+    "pages/calendar/calendar",
+    "pages/indexbar/indexbar",
+    "pages/orderInfo/orderInfo",
+    "components/dropdownmenu/dropdownmenu",
+    "pages/assess/assess"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "debug": false,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "星汇场将获取您的定位"
+    }
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#9A9A9A",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "selectedColor": "#3D154D",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-select.png"
+      },
+      {
+        "pagePath": "pages/space/space",
+        "text": "找会场",
+        "iconPath": "images/space.png",
+        "selectedIconPath": "images/space-select.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-select.png"
+      }
+    ]
+  },
+  "plugins": {
+    "calender": {
+      "version": "1.2.1",
+      "provider": "wx42b95b4509175304"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

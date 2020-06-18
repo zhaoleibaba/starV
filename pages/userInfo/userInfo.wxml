@@ -1,0 +1,32 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view class="container">
+  <view class="blank10"></view>
+  <view class="form">
+    <view class="form-info">
+      <view class="form-item">
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-mobile.png" /></view>
+          <view class="em"></view>
+          <view class="value">
+            <input placeholder="请输入手机号码" value="{{mobile}}" disabled></input>
+          </view>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-user.png" /></view>
+          <view class="em"></view>
+          <view class="value">
+            <input placeholder="请输入姓名" value="{{username}}" bindinput='formName'></input>
+          </view>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-email.png" /></view>
+          <view class="em"></view>
+          <view class="value">
+            <input placeholder="电子邮箱" value="{{email}}" bindinput='formEmail'></input>
+          </view>
+        </view>
+        <view class="btn btn-box" bindtap="saveOn">保存</view>
+      </view>
+    </view>
+  </view>
+</view>

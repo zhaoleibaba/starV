@@ -1,0 +1,37 @@
+<!--pages/reset/reset.wxml-->
+<!--pages/userInfo/userInfo.wxml-->
+<view class="container">
+  <view class="blank10"></view>
+  <view class="form">
+    <view class="form-info">
+      <view class="form-item">
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-mobile.png" /></view>
+          <view class="value">
+            <input placeholder="请输入手机号码" value="{{ phone }}" disabled></input>
+          </view>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-code.png" /></view>
+          <view class="value">
+            <input placeholder="请输入验证码" bindinput='getCodeValue' value='{{code}}'></input>
+          </view>
+          <button type="default" class="code" bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-psd.png" /></view>
+          <view class="value">
+            <input placeholder="请输入密码" bindinput='getPasswordValue' value='{{password}}'></input>
+          </view>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-psd.png" /></view>
+          <view class="value">
+            <input placeholder="请再次输入密码" bindinput='getPasswordAgainValue' value='{{isPassword}}'></input>
+          </view>
+        </view>
+        <button class="btn-box {{!isDisabled ? 'btn': ''}}" disabled='{{isDisabled}}' bindtap="resetSuccess">确认修改</button>
+      </view>
+    </view>
+  </view>
+</view>

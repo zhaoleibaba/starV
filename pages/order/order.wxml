@@ -1,0 +1,165 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+  <view class='swiperBox'>
+    <van-tabs active="{{ active }}" class="h100" tab-active-class="act" color="#7D3F96" bind:change="onChange">
+      <van-tab title="全部">
+        <view class="order-items">
+          <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+            <block wx:for="{{orderList}}" wx:key="index">
+            <!-- <navigator url="/pages/orderInfo/orderInfo"> -->
+              <view class="item" data-sn="{{item.order_sn}}" bindtap="goOrderInfo">
+                <view class="top">
+                  <view class="pr40">{{item.created_time}}  订单号：</view>
+                  <view class="col_4a">{{item.order_sn}}</view>
+                </view>
+                <view class="middle">
+                  <view class="img">
+                    <image src="http://img.cncnp.com/{{item.image}}" />
+                  </view>
+                  <view class="order-info">
+                    <view class="name">{{item.hotel_name}}</view>
+                    <view><text class="dw">会 议 厅 ：</text>{{item.hotel_room_name}}</view>
+                    <view><text class="dw">预定时间：</text>{{item.date}} {{item.begin_time}}-{{item.end_time}}</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="order-pri">订单总额 <text class="col_tag">¥ {{item.amount}}</text></view>
+                  <view class="order-btn">
+                    <view class="over" wx:if="{{item.status == 3}}">已完成</view>
+                    <view class="btn {{item.status==1 ? 'col_1':(item.status==2 ? 'col_0' : ( item.status==3 ? (item.cancomment==0 ? 'col_3' : 'col_2') : 'col_0'))}}" data-status="{{item.status}}" data-cancomment="{{item.cancomment}}" data-sn="{{item.order_sn}}" catchtap="statusBtn">{{item.status==1 ? "去支付":(item.status==2 ? "待确认" : ( item.status==3 ? "评价" : "已退款"))}}</view>
+                  </view>
+                </view>
+              </view>
+            <!-- </navigator> -->
+            </block>
+          <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+          </scroll-view>
+        </view>
+      </van-tab>
+      <van-tab title="待支付">
+        <view class="order-items">
+          <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+            <block wx:for="{{orderList}}" wx:key="index">
+              <view class="item" data-sn="{{item.order_sn}}" bindtap="goOrderInfo">
+                <view class="top">
+                  <view class="pr40">{{item.created_time}}  订单号：</view>
+                  <view class="col_4a">{{item.order_sn}}</view>
+                </view>
+                <view class="middle">
+                  <view class="img">
+                    <image src="http://img.cncnp.com/{{item.image}}" />
+                  </view>
+                  <view class="order-info">
+                    <view class="name">{{item.hotel_name}}</view>
+                    <view><text class="dw">会 议 厅 ：</text>{{item.hotel_room_name}}</view>
+                    <view><text class="dw">预定时间：</text>{{item.date}} {{item.begin_time}}-{{item.end_time}}</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="order-pri">订单总额 <text class="col_tag">¥ {{item.amount}}</text></view>
+                  <view class="order-btn">
+                    <view class="btn col_1" catchtap="goPayment">去支付</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+          </scroll-view>
+        </view>
+      </van-tab>
+      <van-tab title="未确认">
+        <view class="order-items">
+          <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+            <block wx:for="{{orderList}}" wx:key="index">
+              <view class="item" data-sn="{{item.order_sn}}" bindtap="goOrderInfo">
+                <view class="top">
+                  <view class="pr40">{{item.created_time}}  订单号：</view>
+                  <view class="col_4a">{{item.order_sn}}</view>
+                </view>
+                <view class="middle">
+                  <view class="img">
+                    <image src="http://img.cncnp.com/{{item.image}}" />
+                  </view>
+                  <view class="order-info">
+                    <view class="name">{{item.hotel_name}}</view>
+                    <view><text class="dw">会 议 厅 ：</text>{{item.hotel_room_name}}</view>
+                    <view><text class="dw">预定时间：</text>{{item.date}} {{item.begin_time}}-{{item.end_time}}</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="order-pri">订单总额 <text class="col_tag">¥ {{item.amount}}</text></view>
+                  <view class="order-btn">
+                    <view class="btn col_0">待确认</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+          </scroll-view>
+        </view>
+      </van-tab>
+      <van-tab title="已完成">
+        <view class="order-items">
+          <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+            <block wx:for="{{orderList}}" wx:key="index">
+              <view class="item" data-sn="{{item.order_sn}}" bindtap="goOrderInfo">
+                <view class="top">
+                  <view class="pr40">{{item.created_time}}  订单号：</view>
+                  <view class="col_4a">{{item.order_sn}}</view>
+                </view>
+                <view class="middle">
+                  <view class="img">
+                    <image src="http://img.cncnp.com/{{item.image}}" />
+                  </view>
+                  <view class="order-info">
+                    <view class="name">{{item.hotel_name}}</view>
+                    <view><text class="dw">会 议 厅 ：</text>{{item.hotel_room_name}}</view>
+                    <view><text class="dw">预定时间：</text>{{item.date}} {{item.begin_time}}-{{item.end_time}}</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="order-pri">订单总额 <text class="col_tag">¥ {{item.amount}}</text></view>
+                  <view class="order-btn">
+                    <view class="btn {{item.cancomment == 0 ? 'col_3' : 'col_4'}}" data-status="{{item.status}}" data-cancomment="{{item.cancomment}}" data-sn="{{item.order_sn}}" catchtap="statusBtn">评价</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+          </scroll-view>
+        </view>
+      </van-tab>
+      <van-tab title="退款">
+        <view class="order-items">
+          <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+            <block wx:for="{{orderList}}" wx:key="index">
+              <view class="item" data-sn="{{item.order_sn}}" bindtap="goOrderInfo">
+                <view class="top">
+                  <view class="pr40">{{item.created_time}}  订单号：</view>
+                  <view class="col_4a">{{item.order_sn}}</view>
+                </view>
+                <view class="middle">
+                  <view class="img">
+                    <image src="http://img.cncnp.com/{{item.image}}" />
+                  </view>
+                  <view class="order-info">
+                    <view class="name">{{item.hotel_name}}</view>
+                    <view><text class="dw">会 议 厅 ：</text>{{item.hotel_room_name}}</view>
+                    <view><text class="dw">预定时间：</text>{{item.date}} {{item.begin_time}}-{{item.end_time}}</view>
+                  </view>
+                </view>
+                <view class="bottom">
+                  <view class="order-pri">订单总额 <text class="col_tag">¥ {{item.amount}}</text></view>
+                  <view class="order-btn">
+                    <view class="btn col_0">已退款</view>
+                  </view>
+                </view>
+              </view>
+            </block>
+          <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+          </scroll-view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+/* pages/city/city.wxss */
+.city-box{
+  width: 100%;
+}
+.cityItem{
+  text-align: left;
+  color: #4a4a4a;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+  width: 100%;
+  border-bottom: #f2f2f2 1px solid;
+}

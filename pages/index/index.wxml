@@ -1,0 +1,67 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="form">
+  <view class="logo">
+    <image src="../../images/logo.png" />
+  </view>
+    <view class="form-info">
+      <view class="title">发布活动需求</view>
+      <view class="form-item">
+        <view class="item-box item-city" bindtap="chooseCity">
+          <view class="icon"><image src="../../images/icon-city.png" /></view>
+          <view class="em">*</view>
+          <view class="value"><text>{{ cityName }}</text></view>
+        </view>
+        <!-- <view class="item-box item-area">
+          <view class="icon"><image src="../../images/icon-tsdb.png" /></view>
+          <view class="em"></view>
+          <view class="value"><text>区域或特色地标</text></view>
+        </view> -->
+        <!-- <view class="item-box item-date">
+          <navigator url='/pages/calendar/calendar'>
+            <view class="icon"><image src="../../images/icon-time.png" /></view>
+            <view class="em">*</view>
+            <view class="value"><text>{{ checkInDate }}</text></view>
+          </navigator>
+        </view> -->
+        <view class="item-box item-area" bindtap="showActivityTime">
+          <view class="icon"><image src="../../images/icon-long.png" /></view>
+          <view class="em"></view>
+          <view class="value"><text>{{longTime}}</text></view>
+        </view>
+        <view class="item-box item-people" bindtap="showActivityPeople">
+          <view class="icon"><image src="../../images/icon-user.png" /></view>
+          <view class="em">*</view>
+          <view class="value"><text>{{appendPeople}}</text></view>
+        </view>
+        <view class="item-box item-budget" bindtap="showActivityBudget">
+          <view class="icon"><image src="../../images/icon-budget.png" /></view>
+          <view class="em"></view>
+          <view class="value"><text>{{budget}}</text></view>
+        </view>
+        <view class="item-box item-type" bindtap="showActivityActivity">
+          <view class="icon"><image src="../../images/icon-type.png" /></view>
+          <view class="em">*</view>
+          <view class="value"><text>{{activity}}</text></view>
+        </view>
+        <view class="item-box item-need" bindtap="showActivitySpace">
+          <view class="icon"><image src="../../images/icon-space.png" /></view>
+          <view class="em">*</view>
+          <view class="value"><text>{{space}}</text></view>
+        </view>
+        <view class="btn btn-box" bindtap="findSpace">查找场地</view>
+      </view>
+    </view>
+  </view>
+  <van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  data-type="{{dataType}}"
+  data-cid="{{cid}}"
+  round = "{{ round }}"
+  cancel-text="取消"
+  bind:close="onClose"
+  bind:cancel = "onClose"
+  bind:select="onSelect"
+/>
+</view>

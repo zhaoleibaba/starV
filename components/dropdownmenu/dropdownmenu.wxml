@@ -1,0 +1,95 @@
+<!--components/dropdownmenu/dropdownmenu.wxml-->
+<view class="nav">
+  <view class="nav-item">
+    <view class="item-title {{district_open ? 'active' : ''}} {{district_right_select_name.length > 0 ? 'col_90' : ' '}}" bindtap="chooseDistrictNav" data-index="0">{{district_right_select_name.length > 0 ? district_right_select_name : dropDownMenuTitle[0]}}</view>
+    <view class="item-title {{condition_open ? 'active' : ''}} {{condition_select_name.length > 0 ? 'col_90' : ' '}}" bindtap="chooseConditionNav" data-index="1">{{dropDownMenuTitle[1]}}</view>
+  </view>
+  <view class="districtBox {{district_open ? 'show' : 'disappear'}}">
+    <view class="df">
+      <view class="half half-left">
+        <view class="{{district_left_select == unlimit.id ? 'current_left_select' : ''}}" bindtap="selectDistrictLeft" data-model='{{ unlimit }}'>
+          {{unlimit.name}}
+        </view>
+        <view class="{{district_left_select == item.id ? 'current_left_select' : ''}}" wx:for="{{dropDownMenuDistrictData}}" bindtap="selectDistrictLeft" data-model='{{item}}' wx:key="unique">
+          {{item.name}}
+        </view>
+      </view>
+      <view class="half half-right">
+        <view class="{{district_right_select == item.id ? 'current_right_select' : ''}}" wx:for="{{dropDownMenuDistrictDataRight}}" bindtap="selectDistrictRight" data-model='{{item}}' wx:key="unique">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view class="mask" bindtap="dropDownMove"></view>
+  </view>
+  <view class="conditionBox {{condition_open ? 'show' : 'disappear'}}">
+    <view class="dropdownBox">
+      <view class="ceshi">
+        <view class="list" wx:for="{{ dropDownMenuRightData }}" wx:key="index">
+          <view class="list-title">{{item.title}}：</view>
+          <view class="list-info">
+            <view wx:for="{{item.children}}" wx:for-item="oneItem" wx:key="index" class="info-box {{activeIndex1 == oneItem.cid ? 'on' : ''}} {{activeIndex2 == oneItem.cid ? 'on' : ''}} {{activeIndex3 == oneItem.cid ? 'on' : ''}} {{activeIndex4 == oneItem.cid ? 'on' : ''}} {{activeIndex5 == oneItem.cid ? 'on' : ''}}" data-id="{{oneItem.id}}" data-cid="{{oneItem.cid}}" data-type="{{item.type}}" bindtap="chooseItem">{{oneItem.name}}</view>
+          </view>
+        </view>
+        <!-- <view class="list">
+          <view class="list-title">参与人数：</view>
+          <view class="list-info">
+            <view class="info-box">1-50人</view>
+            <view class="info-box">50-100人</view>
+            <view class="info-box">100-200人</view>
+            <view class="info-box">200以上</view>
+          </view>
+        </view>
+        <view class="list">
+          <view class="list-title">大致预算：</view>
+          <view class="list-info">
+            <view class="info-box">1-2000元</view>
+            <view class="info-box">2001-5000元</view>
+            <view class="info-box">5001-10000元</view>
+            <view class="info-box">10000元以上</view>
+          </view>
+        </view>
+        <view class="list">
+          <view class="list-title">活动类型：</view>
+          <view class="list-info">
+            <view class="info-box">会议</view>
+            <view class="info-box">董事会</view>
+            <view class="info-box">论坛</view>
+            <view class="info-box">培训</view>
+            <view class="info-box">发布会</view>
+            <view class="info-box">展览</view>
+            <view class="info-box">年会</view>
+            <view class="info-box">宴会</view>
+            <view class="info-box">团建</view>
+            <view class="info-box">婚宴</view>
+            <view class="info-box">订婚</view>
+          </view>
+        </view>
+        <view class="list">
+          <view class="list-title">参与人数：</view>
+          <view class="list-info">
+            <view class="info-box">1-50人</view>
+            <view class="info-box">50-100人</view>
+            <view class="info-box">100-200人</view>
+            <view class="info-box">200以上</view>
+          </view>
+        </view>
+        <view class="list">
+          <view class="list-title">大致预算：</view>
+          <view class="list-info">
+            <view class="info-box">1-2000元</view>
+            <view class="info-box">2001-5000元</view>
+            <view class="info-box">5001-10000元</view>
+            <view class="info-box">10000元以上</view>
+          </view>
+        </view> -->
+      </view>
+      <view class="dropdownBtn">
+        <button class="btn reset" bindtap="resetCondition">重置</button>
+        <button class="btn confirm" bindtap="onConfirm">确定</button>
+      </view>
+    </view>
+    <view class="mask" bindtap="dropDownMove"></view>
+  </view>
+  <!-- <van-overlay show="{{ overlayShow }}" bind:click="onClickHide"/> -->
+</view>

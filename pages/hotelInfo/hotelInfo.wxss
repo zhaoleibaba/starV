@@ -1,0 +1,279 @@
+/* pages/hotelInfo/hotelInfo.wxss */
+.topBanner{
+  width: 100%;
+  height: 460rpx;
+}
+.info{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  float: left;
+  font-size: 28rpx;
+  position: relative;
+}
+.info .title{
+  font-weight: bold;
+  font-size: 48rpx;
+  padding-top: 20rpx;
+}
+.info .info-item{
+  line-height: 50rpx;
+}
+.info-item .tag{
+  width: 160rpx;
+  float: left;
+}
+.info-item .score{
+  display: inline-block;
+  color: #4a4a4a;
+}
+.info-item.item1{
+  padding: 10rpx 0;
+}
+.info-item .score .inline{
+  top: 4rpx;
+  padding-left: 10rpx;
+  display: inline-block;
+  position: relative;
+  margin-left: -20rpx;
+}
+.info-item .score .rate,.info-item .score .em{
+  display: block;
+  width: 87px;
+  height: 16px;
+  overflow: hidden;
+  background: url(data:image/png;base64,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) -3px -18px no-repeat;
+}
+.em{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: 4rpx -2px !important;
+  width: 100rpx;
+}
+.info .other{
+  position: absolute;
+  top: 65rpx;
+  right: 0;
+  font-size: 28rpx;
+  color: #4a4a4a;
+}
+.info .other .collect{
+  width: 130rpx;
+  height: 84rpx;
+  text-align: center;
+  border-left: 1px solid #f2f2f2;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.info .other .collect .icon-like{
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin: 0 auto;
+}
+.info .other .skeleton{
+  margin-top: 18rpx;
+  text-align: right;
+  padding-right: 24rpx;
+}
+.tags, .detail, .pkg, .about{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  float: left;
+  position: relative;
+}
+.tags .tag-item{
+  display: inline-block;
+  padding: 8rpx 16rpx;
+  color: #7D3F96;
+  line-height: 24rpx;
+  margin: 8rpx 15rpx 8rpx 0;
+  border: 1px solid #7D3F96;
+}
+.detail{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+.detail .detail-item{
+  padding: 20rpx 0;
+}
+.detail .detail-item .img{
+  width: 84rpx;
+  height: 84rpx;
+  margin: 0 auto;
+}
+.detail .detail-item .msg{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  padding-top: 10rpx;
+}
+.detail .detail-item .msg .fs12{
+  font-size: 24rpx;
+  color: #6E6A6A;
+}
+.pkg{
+  display: flex;
+  justify-content: space-between;
+  font-size: 32rpx;
+  color: #fff;
+}
+.pkg .pkg-item{
+  width: 224rpx;
+  background: var(--c);
+  padding: 15rpx 0;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.about{
+  font-size: 28rpx;
+}
+.about .title{
+  font-size: 32rpx;
+  font-weight: bold;
+  border-left: 10rpx solid var(--c);
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+.about .more{
+  line-height: 45rpx;
+  margin-bottom: 30rpx;
+}
+
+.swiperBox {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.swiperBox .title {
+  width: 100%;
+  height: 90rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #EDEDED;
+}
+.swiperBox .bgf{
+  background: #fff;
+}
+.swiperBox .titleSel {
+  flex: 1;
+  color: #4a4a4a;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.swiperBox .titleSel text{
+  line-height: 80rpx;
+}
+.swiperBox .titleUnsel {
+  color: #858fab;
+  font-size: #858fab;
+}
+
+.swiperBox .headerLineSel {
+  background: var(--c);
+  height: 6rpx;
+  width: 100%;
+  position: relative;
+}
+
+.swiperBox .headerLineUnsel {
+  background: #EDEDED;
+  height: 6rpx;
+  width: 100%;
+  position: relative;
+}
+
+.swiperBox .swiper {
+  width: 100%;
+  flex: 1;
+  height: 1100rpx;
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
+.swiperBox .recordItem {
+  margin-top: 10rpx;
+  background-color: white;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+.meetInfo{
+  font-size: 24rpx;
+  color: #4a4a4a;
+  padding: 30rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.meetInfo .info-items{
+  height: 100%;
+  overflow: scroll;
+}
+.meetInfo .meet-device{
+  color: var(--c);
+  padding-bottom: 20rpx;
+}
+.meetInfo .info-items .info-item{
+  display: flex;
+  line-height: 45rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.meetInfo .info-items .info-item.info-room .item{
+  width: 410rpx;
+}
+.meetInfo .info-items .info-item.info-room .item .w140{
+  width: 160rpx;
+  margin-right: 10rpx;
+  display: block;
+  float: left;
+}
+.meetInfo .info-items .info-item .item{
+  width: 300rpx;
+}
+.meetInfo .info-items .info-item .name{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.meetInfo .info-items .info-item .pri{
+  line-height: 140rpx;
+}
+.meetInfo .info-items .info-item .pri .col_tag{
+  font-size: 28rpx;
+}
+.meetInfo .info-items .info-item .pre{
+  flex: 1;
+}
+.meetInfo .info-items .info-item .pre .btn{
+  background: #F75141;
+  width: 148rpx;
+  height: 64rpx;
+  font-size: 28rpx;
+  line-height: 64rpx;
+  float: right;
+  margin-top: 40rpx;
+}
+.callme{
+  position: fixed;
+  width: 100%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;
+}
+.callme .btn{
+  background: #F75141;
+}

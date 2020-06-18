@@ -1,0 +1,33 @@
+<!--pages/phone/phone.wxml-->
+<view class="container">
+  <view class="logo" bindtap="tologin">
+    <image src="../../images/logo.jpg" />
+  </view>
+  <view class="form">
+    <view class="form-info">
+      <view class="form-item">
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-mobile.png" /></view>
+          <view class="em"></view>
+          <view class="value">
+            <input placeholder="请输入手机号码" bindinput="formMobile"></input>
+          </view>
+        </view>
+        <view class="item-box">
+          <view class="icon"><image src="../../images/icon-psd.png" /></view>
+          <view class="em"></view>
+          <view class="value">
+            <input placeholder="请输入密码" bindinput="formPassword"></input>
+          </view>
+        </view>
+      </view>
+      <view class="loginBtn">
+        <button
+          type="wxlogin"
+          hover-class="button-hover"
+          size="{{primarySize}}"
+          bindtap="tologin"> 微信一键登陆 </button>
+      </view>
+    </view>
+  </view>
+</view>

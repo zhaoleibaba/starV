@@ -1,0 +1,54 @@
+<!--pages/discuss/discuss.wxml-->
+<view class="container">
+  <view class="discuss-items">
+  <block wx:for="{{discuss}}" wx:key="index">
+    <view class="item">
+      <view class="top">
+        <view class="head"><image src="../../images/icon-head.png" /></view>
+        <view class="right">
+          <view class="">
+            <text class="tel">{{item.user_name}}</text>
+            <text>{{item.created_time}}</text>
+          </view>
+          <view class="score">评分：
+            <view class="inline">
+              <view class="rate"></view>
+              <view class="em" style="width: calc( {{item.score}} * 19px )"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="body">{{item.content}}</view>
+      <view class="reply" wx:if="{{item.reply != ''}}">
+        <view class="fw">官方回复 <view class="nofw">{{item.reply_time}}</view></view>
+        <view>{{item.reply}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+    <!-- <view class="item">
+      <view class="top">
+        <view class="head"><image src="../../images/icon-head.png" /></view>
+        <view class="right">
+          <view class="">
+            <text class="tel">18915811588</text>
+            <text>2019-03-21</text>
+          </view>
+          <view class="score">评分：
+            <view class="inline">
+              <view class="rate"></view>
+              <view class="em" style="width:150rpx"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="body">
+        配套设施包括环境都不错，包括房间格局都还行，感觉蛮有家庭氛围，装饰比较简单，但不入俗套，比较简单明快，住着比较舒服，住的是大床房，设施用品都有，质量还行。
+      </view>
+      <view class="reply">
+        <view class="fw">官方回复</view>
+        <view>感谢您对星会场的支持。</view>
+      </view>
+    </view> -->
+  </view>
+</view>

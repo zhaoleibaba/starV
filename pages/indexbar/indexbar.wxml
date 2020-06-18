@@ -1,0 +1,50 @@
+<!--pages/indexbar/indexbar.wxml-->
+<view class="container">
+  <view class="i-index-demo">
+    <i-index height="100%" bind:change="onChange">
+      <i-index-item style="display:none"></i-index-item>
+      <i-index-item
+        wx:for="{{ cities }}" 
+        wx:for-index="index" 
+        wx:key="index" 
+        wx:for-item="item" name="{{item.key}}">
+        <block wx:if="{{index == 0}}">
+          <view
+            bindtap='cityValue'
+            data-name="{{ih.name}}"
+            id="{{ih.zip}}"
+            class="city-item" 
+            wx:for="{{ hotCities }}" 
+            wx:for-index="ig" 
+            wx:key="index" 
+            wx:for-item="ih">
+            {{ih.name}}
+          </view>
+        </block>
+        <block wx:else>
+          <view
+            bindtap='cityValue'
+            data-name="{{it.name}}"
+            id="{{it.id}}"
+            class="i-index-demo-item" 
+            wx:for="{{item.list}}" 
+            wx:for-index="in" 
+            wx:key="index" 
+            wx:for-item="it">
+            {{it.name}}
+          </view>
+        </block>
+        <!-- <view
+          bindtap='cityValue'
+          data-name="{{it.name}}"
+          class="i-index-demo-item" 
+          wx:for="{{item.list}}" 
+          wx:for-index="in" 
+          wx:key="{{in}}" 
+          wx:for-item="it">
+          {{it.name}}
+        </view> -->
+      </i-index-item>
+    </i-index>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--pages/collect/collect.wxml-->
+<view class="container">
+  <view class="collect-items">
+    <scroll-view scroll-y='true' bindscrolltolower='scrollLower'>
+      <block wx:for="{{hotelList}}" wx:key="index">
+        <view class="item">
+          <view class="img">
+            <image src="{{item.image}}"></image>
+          </view>
+          <view class="info">
+            <view class="name">
+              {{item.name}}
+              <view class="tag">[{{item.level}}]</view>
+            </view>
+            <view class="address"> 地址：{{item.address}}</view>
+            <view class="more">
+              <view class="mr10"><view class="col_9">会场面积：</view>{{item.area_min}}-{{item.area_max}}m² </view>
+              <view><view class="col_9">容纳人数：</view>{{item.accommodation_min}}-{{item.accommodation_max}}人 </view>
+            </view>
+          </view>
+          <view class="del" data-id="{{item.id}}" data-index="{{index}}" bindtap="cancelCollect">
+            <image src="../../images/icon-del.png"></image>
+          </view>
+        </view>
+      </block>
+
+      <view class="loadingComplete" wx:if="{{loadingComplete}}">已经全部加载完毕</view>
+    </scroll-view>
+  </view>
+</view>
